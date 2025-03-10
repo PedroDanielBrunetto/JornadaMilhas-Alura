@@ -5,14 +5,17 @@ import { Promocao } from '../types/type';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class PromocaoService {
+
   private apiUrl: string = environment.apiUrl;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
-  listar(): Observable<Promocao[]> {
-    return this.httpClient.get<Promocao[]>(`${this.apiUrl}/promocoes`);
+  listar () : Observable<Promocao[]> {
+    return this.httpClient.get<Promocao[]>(`${this.apiUrl}/promocoes`)
   }
 }

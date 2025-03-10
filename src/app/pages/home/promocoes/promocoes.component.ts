@@ -5,14 +5,17 @@ import { Promocao } from 'src/app/core/types/type';
 @Component({
   selector: 'app-promocoes',
   templateUrl: './promocoes.component.html',
-  styleUrls: ['./promocoes.component.scss'],
+  styleUrls: ['./promocoes.component.scss']
 })
 export class PromocoesComponent implements OnInit {
   promocoes!: Promocao[];
-  constructor(private service: PromocaoService) {}
+  constructor(private service: PromocaoService) {
+  }
   ngOnInit(): void {
-    this.service.listar().subscribe((res) => {
-      this.promocoes = res;
-    });
+    this.service.listar().subscribe(
+      res => {
+        this.promocoes = res;
+      }
+    )
   }
 }
